@@ -16,9 +16,9 @@ on:
 env:
   MANIFEST: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp -b twrp-11
   DEVICE: Z45
-  DT_LINK: https://github.com/Arafattex/twrp_t610 -b Symphony_z45_a11
+  DT_LINK: https://github.com/Arafattex/twrp_t610 -b in2b
   DT_PATH: device/symphony/Z45
-  TYPE: recoveryimage
+  TYPE: bootimage
   OT: twrp_
   TZ: Europe/London
 
@@ -67,7 +67,7 @@ jobs:
          run: |
               cd work
               . build/envsetup.sh && lunch $OT$DEVICE-eng && export ALLOW_MISSING_DEPENDENCIES=true && mka $TYPE -j50   
-              zip shrp.zip /home/runner/work/Recovery_builder/Recovery_builder/work/out/target/product/$DEVICE/recovery.img
+              zip shrp.zip /home/runner/work/Recovery_builder/Recovery_builder/work/out/target/product/$DEVICE/boot.img
              
        - name: Save
          uses: actions/upload-artifact@v3
