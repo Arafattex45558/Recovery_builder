@@ -13,18 +13,13 @@ on:
   workflow_dispatch:
 
 env:
-  Rec_name: Ofox
-  Rec_ver: "11.0"
-  Rec_url: https://gitlab.com/OrangeFox/sync.git -b master
-  device: lancelot
-  DT_url: https://github.com/Arafattex/twrp_tree_mt6768.git -b lancelot_a11
-  DT_path: device/xiaomi/lancelot
-  ProductFileHeader: omni
-  target: recoveryimage
-  WorkSpace: WorkSpace
-  TZ: Asia/Calcutta
-  Author: ${{github.actor}}
-  Delete_old: false
+  MANIFEST: https://github.com/PitchBlackRecoveryProject/manifest_pb -b android-11.0
+  DEVICE: lancelot
+  DT_LINK: https://github.com/Arafattex/twrp_tree_mt6768 -b lancelot_a11_pb
+  DT_PATH: device/xiaomi/lancelot
+  TYPE: recoveryimage
+  OT: omni_
+  TZ: Europe/London
 
 jobs:
   build:
@@ -56,47 +51,25 @@ jobs:
 
        - name: sync ofox
          run: |
-          mkdir ${{env.WorkSpace}}
-          git clone ${{env.Rec_url}} --depth=1 --single-branch
+          mkdir OrangeFox_sync
+          cd OrangeFox_sync
+          git clone https://gitlab.com/OrangeFox/sync.git
           cd sync
-          echo "::group::Orangefox_sync help"
-          ./orangefox_sync.sh --help
-          echo "::endgroup::"
-          echo "::group::Run Orangefox_sync.sh"
-          ./orangefox_sync.sh --branch ${{env.Rec_ver}} --path ${{github.workspace}}/${{env.WorkSpace}} --ssh 0
-          echo "::endgroup::"
-          echo "::group::sync Orangefox"
-          cd ${{github.workspace}}/${{env.WorkSpace}}
-          # repo sync -c -j100 --force-sync --no-clone-bundle --no-tags
+          ./orangefox_sync.sh --branch 11.0 --path fox_11.0
+          cd fox_11.0
           rm -rf .repo
-          echo "::endgroup::"
-
-       - name: Sync device tree
+          git clone $DT_LINK $DT_PATH --depth=1
+  
+        - name: Build
          run: |
-          cd ${{env.WorkSpace}}
-          git clone ${{env.DT_url}} --depth=1 --single-branch ${{env.DT_path}}
-
-       - name: Build ${{env.Rec_name}}
-         run: |
-          cd ${{env.WorkSpace}}
-          echo "::group::Run Envsetup.sh"
-          source build/envsetup.sh
-          echo "::endgroup::"
-          echo "::group::Set EnvPath"
-          export ALLOW_MISSING_DEPENDENCIES=true
-          export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
-          export LC_ALL="C"
-          echo "::endgroup::"
-          echo "::group::Lunch ${{env.ProductFileHeader}}_${{env.device}}-eng"
-          lunch ${{env.ProductFileHeader}}_${{env.device}}-eng
-          zip ofox.zip /home/runner/work/Recovery_builder/Recovery_builder/${{github.workspace}}/${{env.WorkSpace}}/out/target/product/lancelot/recovery.img
-         shell: bash
+              cd OrangeFox_sync/sync/fox_11.0
+              . build/envsetup.sh && lunch $OT$DEVICE-eng && export ALLOW_MISSING_DEPENDENCIES=true && mka $TYPE -j20
+              zip ofox.zip /home/runner/work/Recovery_builder/Recovery_builder/OrangeFox_sync/sync/fox_11.0/out/target/product/$DEVICE/recovery.img
 
        - name: Save
          uses: actions/upload-artifact@v3
          with:
-            name: recoverylance.zip
-            path: /home/runner/work/Recovery_builder/Recovery_builder/${{github.workspace}}/${{env.WorkSpace}}/ofox.zip
+            name: recoverylanofox.zip
+            path: /home/runner/work/Recovery_builder/Recovery_builder/OrangeFox_sync/sync/fox_11.0/ofox.zip
             retention-days: 5
-
       
