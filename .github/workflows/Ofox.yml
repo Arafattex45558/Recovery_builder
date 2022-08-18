@@ -18,11 +18,11 @@ env:
   Rec_name: Ofox
   Rec_ver: "11.0"
   Rec_url: https://gitlab.com/OrangeFox/sync.git -b master
-  device: spes
-  DT_url: https://github.com/shashankx86/android_device_xiaomi_spes -b twrp-11
-  DT_path: device/xiaomi/spes
-  ProductFileHeader: twrp
-  target: bootimage
+  device: lancelot
+  DT_url: https://github.com/Arafattex/twrp_tree_mt6768.git -b lancelot_a11
+  DT_path: device/xiaomi/lancelot
+  ProductFileHeader: omni
+  target: recoveryimage
   WorkSpace: WorkSpace
   TZ: Asia/Calcutta
   Author: ${{github.actor}}
