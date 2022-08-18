@@ -64,7 +64,6 @@ jobs:
        - name: Build
          run: |
               cd /home/runner/OrangeFox_sync/ofox/fox_11.0
-              . build/envsetup.sh &&  && export ALLOW_MISSING_DEPENDENCIES=true && 
               echo "::group::Run Envsetup.sh"
               . build/envsetup.sh
               echo "::endgroup::"
