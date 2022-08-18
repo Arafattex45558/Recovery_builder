@@ -79,7 +79,6 @@ jobs:
        - name: Build ${{env.Rec_name}}
          run: |
           cd ${{env.WorkSpace}}
-          pwd
           echo "::group::Run Envsetup.sh"
           source build/envsetup.sh
           echo "::endgroup::"
