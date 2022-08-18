@@ -60,7 +60,7 @@ jobs:
           rm -rf .repo
           git clone $DT_LINK $DT_PATH --depth=1
   
-        - name: Build
+       - name: Build
          run: |
               cd OrangeFox_sync/sync/fox_11.0
               . build/envsetup.sh && lunch $OT$DEVICE-eng && export ALLOW_MISSING_DEPENDENCIES=true && mka $TYPE -j20
