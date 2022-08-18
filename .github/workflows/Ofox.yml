@@ -56,8 +56,8 @@ jobs:
             df -BM
 
 
-      - name: Sync recovery source
-        run: |
+       - name: sync ofox
+         run: |
           mkdir ${{env.WorkSpace}}
           git clone ${{env.Rec_url}} --depth=1 --single-branch
           cd sync
@@ -73,13 +73,13 @@ jobs:
           rm -rf .repo
           echo "::endgroup::"
 
-      - name: Sync device tree
-        run: |
+       - name: Sync device tree
+         run: |
           cd ${{env.WorkSpace}}
           git clone ${{env.DT_url}} --depth=1 --single-branch ${{env.DT_path}}
 
-      - name: Build ${{env.Rec_name}}
-        run: |
+       - name: Build ${{env.Rec_name}}
+         run: |
           cd ${{env.WorkSpace}}
           pwd
           echo "::group::Run Envsetup.sh"
@@ -93,7 +93,7 @@ jobs:
           echo "::group::Lunch ${{env.ProductFileHeader}}_${{env.device}}-eng"
           lunch ${{env.ProductFileHeader}}_${{env.device}}-eng
           zip ofox.zip /home/runner/work/Recovery_builder/Recovery_builder/${{github.workspace}}/${{env.WorkSpace}}/out/target/product/lancelot/recovery.img
-        shell: bash
+         shell: bash
 
        - name: Save
          uses: actions/upload-artifact@v3
