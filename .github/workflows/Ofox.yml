@@ -75,9 +75,7 @@ jobs:
           export LC_ALL="C"
           export TW_DEFAULT_LANGUAGE="en"
           export FOX_VERSION="Unofficial"
-   	      
 	  export TARGET_DEVICE_ALT="shiva"
-
 	  export FOX_RECOVERY_SYSTEM_PARTITION="/dev/block/mapper/system"
 	  export FOX_RECOVERY_VENDOR_PARTITION="/dev/block/mapper/vendor"
 	  export OF_QUICK_BACKUP_LIST="/boot;/data;"
@@ -107,31 +105,31 @@ jobs:
 	  export FOX_USE_SED_BINARY=1
 	  export FOX_USE_XZ_UTILS=1
 	  export OF_SKIP_MULTIUSER_FOLDERS_BACKUP=1
-	xport OF_DONT_PATCH_ON_FRESH_INSTALLATION=1
+	  export OF_DONT_PATCH_ON_FRESH_INSTALLATION=1
 	  export FOX_R11=1
-	   export OF_FORCE_MAGISKBOOT_BOOT_PATCH_MIUI=1
-	   export OF_FLASHLIGHT_ENABLE=0
-	   export FOX_DELETE_AROMAFM=1
-	   export OF_PATCH_AVB20=1
+	  export OF_FORCE_MAGISKBOOT_BOOT_PATCH_MIUI=1
+	  export OF_FLASHLIGHT_ENABLE=0
+	  export FOX_DELETE_AROMAFM=1
+	  export OF_PATCH_AVB20=1
 	  export OF_FBE_METADATA_MOUNT_IGNORE="1"
-	   export FOX_REPLACE_BUSYBOX_PS="0"
-	      export OF_CHECK_OVERWRITE_ATTEMPTS=1
-	      export OF_USE_SYSTEM_FINGERPRINT=1
-	      export OF_NO_MIUI_PATCH_WARNING=1
-	      export OF_USE_LOCKSCREEN_BUTTON=1
-	      export FOX_ENABLE_APP_MANAGER=0
-	      export FOX_VARIANT=MIUI
-	      export FOX_DELETE_INITD_ADDON=1
-	      export OF_SKIP_ORANGEFOX_PROCESS=1
-	      export OF_RUN_POST_FORMAT_PROCESS=1
-              echo "::endgroup::"
-              echo "::group::Lunch 
-              lunch $OT$DEVICE-eng
-              echo "::endgroup::"
-              echo "::group::Build
-              mka $TYPE -j20
-              zip ofox.zip /home/runner/OrangeFox_sync/ofox/fox_11.0/out/target/product/$DEVICE/recovery.img
-              echo "::endgroup::"
+	  export FOX_REPLACE_BUSYBOX_PS="0"
+	  export OF_CHECK_OVERWRITE_ATTEMPTS=1
+          export OF_USE_SYSTEM_FINGERPRINT=1
+	  export OF_NO_MIUI_PATCH_WARNING=1
+	  export OF_USE_LOCKSCREEN_BUTTON=1
+	  export FOX_ENABLE_APP_MANAGER=0
+	  export FOX_VARIANT=MIUI
+	  export FOX_DELETE_INITD_ADDON=1
+	  export OF_SKIP_ORANGEFOX_PROCESS=1
+	  export OF_RUN_POST_FORMAT_PROCESS=1
+          echo "::endgroup::"
+          echo "::group::Lunch 
+          lunch $OT$DEVICE-eng
+          echo "::endgroup::"
+          echo "::group::Build
+          mka $TYPE -j20
+          zip ofox.zip /home/runner/OrangeFox_sync/ofox/fox_11.0/out/target/product/$DEVICE/recovery.img
+          echo "::endgroup::"
              
        - name: Save
          uses: actions/upload-artifact@v3
