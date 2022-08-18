@@ -1,19 +1,17 @@
 name: OFOX Build
 on:
+#  release:
+#    types: [published]
+#  push:
+#    branches:
+#      - master
+#    paths:
+#      - '.config'
+#  schedule:
+#    - cron: 0 8 * * 5
+#  tested on android 8.1
   workflow_dispatch:
-    inputs:
-      crypto:
-        description: "Whether to disable the encryption module, true or false"
-        required: false
-        default: "false"
-      Enable_cache:
-        description: "Enable cache, true or false"
-        required: true
-        default: "true"
-      Delete_oldReleases:
-        description: "whether to delete old postings, true or false"
-        required: false
-        default: "false"
+
 env:
   Rec_name: Ofox
   Rec_ver: "11.0"
@@ -69,7 +67,7 @@ jobs:
           echo "::endgroup::"
           echo "::group::sync Orangefox"
           cd ${{github.workspace}}/${{env.WorkSpace}}
-          repo sync -j4 --force-sync
+          repo sync -c -j100 --force-sync --no-clone-bundle --no-tags
           rm -rf .repo
           echo "::endgroup::"
 
