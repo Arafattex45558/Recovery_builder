@@ -55,8 +55,9 @@ jobs:
           mkdir ~/OrangeFox_sync
           cd ~/OrangeFox_sync
           git clone https://github.com/Arafattex/ofox.git
+          ls
           cd ~/OrangeFox_sync/ofox/
-          ./orangefox_sync.sh --branch 11.0 --path ~/fox_11.0
+          ./orangefox_sync.sh --branch 11.0 
           ls
           git clone $DT_LINK $DT_PATH --depth=1
           . build/envsetup.sh && lunch $OT$DEVICE-eng && export ALLOW_MISSING_DEPENDENCIES=true && mka $TYPE -j20
