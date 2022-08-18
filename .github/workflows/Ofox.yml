@@ -53,23 +53,23 @@ jobs:
          run: |
           mkdir ~/OrangeFox_sync
           cd ~/OrangeFox_sync
-          git clone https://gitlab.com/OrangeFox/sync.git # (or, using ssh, "git clone git@gitlab.com:OrangeFox/sync.git")
-          cd ~/OrangeFox_sync/sync/
+          git clone https://github.com/Arafattex/ofox.git
+          cd ~/OrangeFox_sync/ofox/
           ./orangefox_sync.sh --branch 11.0 --path ~/fox_11.0
-          cd fox_11.0
+          cd /home/runner/work/Recovery_builder/Recovery_builder/OrangeFox_sync/ofox/fox_11.0
           rm -rf .repo
           git clone $DT_LINK $DT_PATH --depth=1
   
        - name: Build
          run: |
-              cd OrangeFox_sync/sync/fox_11.0
+              cd /home/runner/work/Recovery_builder/Recovery_builder/OrangeFox_sync/ofox/fox_11.0
               . build/envsetup.sh && lunch $OT$DEVICE-eng && export ALLOW_MISSING_DEPENDENCIES=true && mka $TYPE -j20
-              zip ofox.zip /home/runner/work/Recovery_builder/Recovery_builder/OrangeFox_sync/sync/fox_11.0/out/target/product/$DEVICE/recovery.img
+              zip ofox.zip /home/runner/work/Recovery_builder/Recovery_builder/OrangeFox_sync/ofox/fox_11.0/out/target/product/$DEVICE/recovery.img
 
        - name: Save
          uses: actions/upload-artifact@v3
          with:
             name: recoverylanofox.zip
-            path: /home/runner/work/Recovery_builder/Recovery_builder/OrangeFox_sync/sync/fox_11.0/ofox.zip
+            path: /home/runner/work/Recovery_builder/Recovery_builder/OrangeFox_sync/ofox/fox_11.0/ofox.zip
             retention-days: 5
       
