@@ -3,6 +3,7 @@ on:
 #  release:
 #    types: [published]
 #  push:
+#   cd /home/runner/work/Recovery_builder/Recovery_builder/OrangeFox_sync/ofox/fox_11.0
 #    branches:
 #      - master
 #    paths:
@@ -49,23 +50,17 @@ jobs:
             df -BM
 
 
-       - name: sync ofox
+       - name: sync ofox and build
          run: |
           mkdir ~/OrangeFox_sync
           cd ~/OrangeFox_sync
           git clone https://github.com/Arafattex/ofox.git
           cd ~/OrangeFox_sync/ofox/
           ./orangefox_sync.sh --branch 11.0 --path ~/fox_11.0
-          # cd /home/runner/work/Recovery_builder/Recovery_builder/OrangeFox_sync/ofox/fox_11.0
-          # rm -rf .repo
           ls
           git clone $DT_LINK $DT_PATH --depth=1
-  
-       - name: Build
-         run: |
-              cd /home/runner/work/Recovery_builder/Recovery_builder/OrangeFox_sync/ofox/fox_11.0
-              . build/envsetup.sh && lunch $OT$DEVICE-eng && export ALLOW_MISSING_DEPENDENCIES=true && mka $TYPE -j20
-              zip ofox.zip /home/runner/work/Recovery_builder/Recovery_builder/OrangeFox_sync/ofox/fox_11.0/out/target/product/$DEVICE/recovery.img
+          . build/envsetup.sh && lunch $OT$DEVICE-eng && export ALLOW_MISSING_DEPENDENCIES=true && mka $TYPE -j20
+          zip ofox.zip /home/runner/work/Recovery_builder/Recovery_builder/OrangeFox_sync/ofox/fox_11.0/out/target/product/$DEVICE/recovery.img
 
        - name: Save
          uses: actions/upload-artifact@v3
