@@ -67,7 +67,7 @@ jobs:
           echo "::endgroup::"
           echo "::group::sync Orangefox"
           cd ${{github.workspace}}/${{env.WorkSpace}}
-          repo sync -c -j100 --force-sync --no-clone-bundle --no-tags
+          # repo sync -c -j100 --force-sync --no-clone-bundle --no-tags
           rm -rf .repo
           echo "::endgroup::"
 
