@@ -63,49 +63,51 @@ jobs:
          
        - name: Build
          run: |
-              cd /home/runner/OrangeFox_sync/ofox/fox_11.0
-              echo "::group::Run Envsetup.sh"
-              . build/envsetup.sh
-              echo "::endgroup::"
-              echo "::group::Set EnvPath"
-              export ALLOW_MISSING_DEPENDENCIES=true
-              export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
-              export LC_ALL="C"
-              export TW_DEFAULT_LANGUAGE="en"
-              export FOX_VERSION="Unofficial"
+          cd /home/runner/OrangeFox_sync/ofox/fox_11.0
+          echo "::group::Run Envsetup.sh"
+          . build/envsetup.sh
+          echo "::endgroup::"
+          echo "::group::Set
+	  export TW_DEFAULT_LANGUAGE="en" EnvPath"
+	
+          exort ALLOW_MISSING_DEPENDENCIES=true
+          export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
+          export LC_ALL="C"
+          export TW_DEFAULT_LANGUAGE="en"
+          export FOX_VERSION="Unofficial"
    	      
-	      export TARGET_DEVICE_ALT="shiva"
+	  export TARGET_DEVICE_ALT="shiva"
 
-	      export FOX_RECOVERY_SYSTEM_PARTITION="/dev/block/mapper/system"
-	      export FOX_RECOVERY_VENDOR_PARTITION="/dev/block/mapper/vendor"
-	      export OF_QUICK_BACKUP_LIST="/boot;/data;"
-	      export FOX_BUGGED_AOSP_ARB_WORKAROUND="1588606644"
-              export FOX_RECOVERY_INSTALL_PARTITION="/dev/block/by-name/recovery"
-              export OF_SCREEN_H=2340
-	      export OF_STATUS_INDENT_LEFT="48"
-	      export OF_STATUS_INDENT_RIGHT="48"
-	      export OF_ALLOW_DISABLE_NAVBAR="0"
-	      export OF_USE_MAGISKBOOT=1
-	      export OF_USE_MAGISKBOOT_FOR_ALL_PATCHES=1
-	      export OF_DONT_PATCH_ENCRYPTED_DEVICE=1
-	      export OF_NO_TREBLE_COMPATIBILITY_CHECK=1
-	      export OF_NO_MIUI_PATCH_WARNING=1
-              export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
-	      export OF_SUPPORT_ALL_BLOCK_OTA_UPDATES=1
-              export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1
-	      export OF_OTA_BACKUP_STOCK_BOOT_IMAGE=1
-              export FOX_BUILD_TYPE="Unofficial"
-	      export OF_MAINTAINER="@shas45558"
-	      export FOX_VERSION="R11.1_2-@shas45558"
-	      export FOX_ENABLE_APP_MANAGER=1
-	      export FOX_USE_BASH_SHELL=1
-	      export FOX_ASH_IS_BASH=1
-	      export FOX_USE_NANO_EDITOR=1
-	      export FOX_USE_TAR_BINARY=1
-	      export FOX_USE_SED_BINARY=1
-	      export FOX_USE_XZ_UTILS=1
-	      export OF_SKIP_MULTIUSER_FOLDERS_BACKUP=1
-	      export OF_DONT_PATCH_ON_FRESH_INSTALLATION=1
+	  export FOX_RECOVERY_SYSTEM_PARTITION="/dev/block/mapper/system"
+	  export FOX_RECOVERY_VENDOR_PARTITION="/dev/block/mapper/vendor"
+	  export OF_QUICK_BACKUP_LIST="/boot;/data;"
+	  export FOX_BUGGED_AOSP_ARB_WORKAROUND="1588606644"
+          export FOX_RECOVERY_INSTALL_PARTITION="/dev/block/by-name/recovery"
+          export OF_SCREEN_H=2340
+	  export OF_STATUS_INDENT_LEFT="48"
+	  export OF_STATUS_INDENT_RIGHT="48"
+	  export OF_ALLOW_DISABLE_NAVBAR="0"
+	  export OF_USE_MAGISKBOOT=1
+	  export OF_USE_MAGISKBOOT_FOR_ALL_PATCHES=1
+	  export OF_DONT_PATCH_ENCRYPTED_DEVICE=1
+	  export OF_NO_TREBLE_COMPATIBILITY_CHECK=1
+	  export OF_NO_MIUI_PATCH_WARNING=1
+          export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
+	  export OF_SUPPORT_ALL_BLOCK_OTA_UPDATES=1
+          export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1
+	  export OF_OTA_BACKUP_STOCK_BOOT_IMAGE=1
+          export FOX_BUILD_TYPE="Unofficial"
+	  export OF_MAINTAINER="@shas45558"
+	  export FOX_VERSION="R11.1_2-@shas45558"
+	  export FOX_ENABLE_APP_MANAGER=1
+	  export FOX_USE_BASH_SHELL=1
+	  export FOX_ASH_IS_BASH=1
+	  export FOX_USE_NANO_EDITOR=1
+	  export FOX_USE_TAR_BINARY=1
+	  export FOX_USE_SED_BINARY=1
+	  export FOX_USE_XZ_UTILS=1
+	  export OF_SKIP_MULTIUSER_FOLDERS_BACKUP=1
+	xport OF_DONT_PATCH_ON_FRESH_INSTALLATION=1
 	      export FOX_R11=1
 	      export OF_FORCE_MAGISKBOOT_BOOT_PATCH_MIUI=1
 	      export OF_FLASHLIGHT_ENABLE=0
