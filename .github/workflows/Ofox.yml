@@ -59,14 +59,16 @@ jobs:
           cd ~/OrangeFox_sync/ofox/
           ./orangefox_sync.sh --branch 11.0 
           ls
+          cd /home/runner/OrangeFox_sync/ofox/fox_11.0
           git clone $DT_LINK $DT_PATH --depth=1
           . build/envsetup.sh && lunch $OT$DEVICE-eng && export ALLOW_MISSING_DEPENDENCIES=true && mka $TYPE -j20
-          zip ofox.zip /home/runner/work/Recovery_builder/Recovery_builder/OrangeFox_sync/ofox/fox_11.0/out/target/product/$DEVICE/recovery.img
+          ls
+          zip ofox.zip /home/runner/OrangeFox_sync/ofox/fox_11.0/out/target/product/$DEVICE/recovery.img
 
        - name: Save
          uses: actions/upload-artifact@v3
          with:
             name: recoverylanofox.zip
-            path: /home/runner/work/Recovery_builder/Recovery_builder/OrangeFox_sync/ofox/fox_11.0/ofox.zip
+            path: /home/runner/OrangeFox_sync/ofox/fox_11.0/ofox.zip
             retention-days: 5
       
