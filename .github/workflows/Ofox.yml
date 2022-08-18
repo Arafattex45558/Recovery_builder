@@ -56,7 +56,7 @@ jobs:
           git clone https://github.com/Arafattex/ofox.git
           cd ~/OrangeFox_sync/ofox/
           ./orangefox_sync.sh --branch 11.0 --path ~/fox_11.0
-          cd /home/runner/work/Recovery_builder/Recovery_builder/OrangeFox_sync/ofox/fox_11.0
+          # cd /home/runner/work/Recovery_builder/Recovery_builder/OrangeFox_sync/ofox/fox_11.0
           # rm -rf .repo
           ls
           git clone $DT_LINK $DT_PATH --depth=1
