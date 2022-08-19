@@ -66,7 +66,6 @@ jobs:
           exort ALLOW_MISSING_DEPENDENCIES=true
 	  export TW_DEFAULT_LANGUAGE="en"
           export LC_ALL="C"
-          export TW_DEFAULT_LANGUAGE="en"
           export FOX_VERSION="Unofficial"
 	  export TARGET_DEVICE_ALT="shiva"
 	  export FOX_RECOVERY_SYSTEM_PARTITION="/dev/block/mapper/system"
