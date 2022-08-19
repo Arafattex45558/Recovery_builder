@@ -62,7 +62,7 @@ jobs:
 
        - name: build
          run: |
-          /home/runner/OrangeFox_sync/ofox/fox_11.0
+          cd /home/runner/OrangeFox_sync/ofox/fox_11.0
           source build/envsetup.sh
           export ALLOW_MISSING_DEPENDENCIES=true
           export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
