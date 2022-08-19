@@ -49,10 +49,15 @@ jobs:
             df -BM
 
 
-       - name: sync ofox and build
+       - name: sync ofox
          run: |
           mkdir ~/OrangeFox_sync
           cd ~/OrangeFox_sync
+          git clone https://gitlab.com/OrangeFox/misc/scripts
+          cd scripts
+          sudo bash setup/android_build_env.sh
+          sudo bash setup/install_android_sdk.sh
+          cd ..
           git clone https://github.com/Arafattex/ofox.git
           ls
           cd ~/OrangeFox_sync/ofox
@@ -60,6 +65,9 @@ jobs:
           cd fox_11.0
           git clone $DT_LINK $DT_PATH --depth=1
           rm -rf .repo
+
+       - name: build
+         run: |
           source build/envsetup.sh
           export ALLOW_MISSING_DEPENDENCIES=true
           export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
