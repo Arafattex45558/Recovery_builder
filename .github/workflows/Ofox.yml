@@ -71,12 +71,8 @@ jobs:
          run: |
           cd /home/runner/OrangeFox_sync/ofox/fox_11.0
           source build/envsetup.sh
-          export ALLOW_MISSING_DEPENDENCIES=true
-          export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
-          export LC_ALL="C"
-          export OF_PATCH_AVB20=1
-          lunch omni_lancelot-eng
-          mka adbd recoveryimage -j50
+          lunch omni_lancelot-userdebug
+          mka adbd recoveryimage 
           zip ofox.zip /home/runner/OrangeFox_sync/ofox/fox_11.0/out/target/product/$DEVICE/recovery.img
           echo "::endgroup::"
              
