@@ -60,6 +60,10 @@ jobs:
           ./orangefox_sync.sh --branch 11.0 
           cd fox_11.0
           git clone $DT_LINK $DT_PATH --depth=1
+          df -BM
+          ls
+          rm -rf .repo
+          df -BM
           source build/envsetup.sh
           export ALLOW_MISSING_DEPENDENCIES=true
           export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
