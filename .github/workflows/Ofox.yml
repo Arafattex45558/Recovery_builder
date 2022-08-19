@@ -66,7 +66,7 @@ jobs:
           echo "::endgroup::"
           echo "::group::Set
           exort ALLOW_MISSING_DEPENDENCIES=true
-	  export TW_DEFAULT_LANGUAGE="en" EnvPath"
+	  export TW_DEFAULT_LANGUAGE="en"
           export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
           export LC_ALL="C"
           export TW_DEFAULT_LANGUAGE="en"
