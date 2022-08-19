@@ -59,22 +59,14 @@ jobs:
           ./orangefox_sync.sh --branch 11.0 
           cd fox_11.0
           git clone $DT_LINK $DT_PATH --depth=1
-          cd bootable
-          cd recovery
-          ls
-          cd ..
-          cd ..
-          cd vendor
-          ls
-          cd ..
           rm -rf .repo
           source build/envsetup.sh
           export ALLOW_MISSING_DEPENDENCIES=true
           export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
           export LC_ALL="C"
           export OF_PATCH_AVB20=1
-          lunch $OT$DEVICE-eng
-          mka adbd $TYPE -j20
+          lunch omni_lancelot-eng
+          mka adbd recoveryimage -j50
           zip ofox.zip /home/runner/OrangeFox_sync/ofox/fox_10.0/out/target/product/$DEVICE/recovery.img
           echo "::endgroup::"
              
