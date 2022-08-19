@@ -62,10 +62,10 @@ jobs:
           git clone $DT_LINK $DT_PATH --depth=1
           cd /home/runner/OrangeFox_sync/ofox/fox_11.0
           . build/envsetup.sh
+          export LC_ALL="C"
           export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
           exort ALLOW_MISSING_DEPENDENCIES=true
 	  export TW_DEFAULT_LANGUAGE="en"
-          export LC_ALL="C"
           export FOX_VERSION="Unofficial"
 	  export TARGET_DEVICE_ALT="shiva"
 	  export FOX_RECOVERY_SYSTEM_PARTITION="/dev/block/mapper/system"
