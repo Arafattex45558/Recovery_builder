@@ -63,8 +63,6 @@ jobs:
           cd bootable
           cd recovery 
           ls
-          cd ..
-          cd .. 
           cd gui
           ls
           cd theme
