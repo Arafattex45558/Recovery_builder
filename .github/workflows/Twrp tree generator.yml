@@ -2,11 +2,7 @@ name: Twrp tree generator
 
 on:
   workflow_dispatch:
-    inputs:
-      STOCK_RECOVERY_URL:
-        description: 'stock recovery for your device'
-        required: true
-        default: 
+    
       
 jobs:
   build:
@@ -29,7 +25,7 @@ jobs:
          run: |
              mkdir work
              cd work
-             wget ${{ github.event.inputs.STOCK_RECOVERY_URL }}
+             wget https://data.atonline.net/~jwt/eyJhY3QiOiJnZXQiLCJpbiI6eyJkbCI6dHJ1ZX0sInAiOiJibG9ic3JjL2Jsb2JzLWtvc29nbi1leWRmLWNlZGYtdWRvYy01NXJjNWNzdSJ9/recovery.img?v=1&u=phplatform&e=1663303206&s=XzhVBRVI2M0uUs1rsjLnY_5Om0KHm82eMKa8H0n6ZEA
              
          id: pwd
 
