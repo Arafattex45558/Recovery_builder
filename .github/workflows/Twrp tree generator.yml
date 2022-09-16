@@ -30,6 +30,8 @@ jobs:
              mkdir work
              cd work
              wget ${{ github.event.inputs.STOCK_RECOVERY_URL }}
+             ls 
+             cd qxKHSk
          id: pwd
 
        - name: Generate Twrp tree
