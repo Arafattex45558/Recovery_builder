@@ -30,13 +30,12 @@ jobs:
              mkdir work
              cd work
              wget ${{ github.event.inputs.STOCK_RECOVERY_URL }}
-             ls 
-             cd qxKHSk
+             
          id: pwd
 
        - name: Generate Twrp tree
          run: |
               cd work
-              python3 -m twrpdtgen recovery.img
+              python3 -m twrpdtgen qxKHSk
               #zip shrp.zip /home/runner/work/Recovery_builder/Recovery_builder/work/out/target/product/$DEVICE/recovery.img
              
