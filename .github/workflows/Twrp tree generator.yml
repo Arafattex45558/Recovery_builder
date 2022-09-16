@@ -18,8 +18,8 @@ jobs:
          run: |
             git config --global user.name "Ayush"
             git config --global user.email "ayush@disroot.org"         
-            sudo -E apt-get -qq install python python-pip wget
-            pip install twrpdtgen
+            sudo -E apt-get -qq install python3-pip wget
+            pip3 install twrpdtgen
         
        - name: Get stock recovery 
          run: |
@@ -27,11 +27,11 @@ jobs:
              cd work
              wget https://github.com/6768Team/releases/releases/download/1.0-lava/recovery.img
              
-         id: pwd
+      
 
        - name: Generate Twrp tree
          run: |
               cd work
-              python -m twrpdtgen recovery.img
+              python3 -m twrpdtgen recovery.img
               #zip shrp.zip /home/runner/work/Recovery_builder/Recovery_builder/work/out/target/product/$DEVICE/recovery.img
              
