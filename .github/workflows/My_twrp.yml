@@ -15,9 +15,9 @@ on:
 
 env:
   MANIFEST: https://github.com/Arafattex/platform_manifest_twrp_aosp -b twrp-12.1
-  DEVICE: lancelot
+  DEVICE: lava
   DT_LINK: https://github.com/Arafattex/s_vendor_twrp_tree -b lava_a12
-  DT_PATH: device/xiaomi/lancelot
+  DT_PATH: device/xiaomi/lava
   TYPE: recoveryimage
   OT: twrp_
   TZ: Europe/London
