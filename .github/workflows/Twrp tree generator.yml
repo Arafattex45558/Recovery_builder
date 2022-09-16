@@ -35,5 +35,11 @@ jobs:
               cd work
               ls
               python3 -m twrpdtgen recovery.img
+              zip -r out.zip output
              
-             
+          - name: Save
+         uses: actions/upload-artifact@v3
+         with:
+            name: out.zip
+            path: /home/runner/work/Recovery_builder/Recovery_builder/work/out.zip
+            retention-days: 5          
