@@ -32,6 +32,7 @@ jobs:
        - name: Generate Twrp tree
          run: |
               cd work
+              ls
               python3 -m twrpdtgen recovery.img
-              #zip shrp.zip /home/runner/work/Recovery_builder/Recovery_builder/work/out/target/product/$DEVICE/recovery.img
+             
              
