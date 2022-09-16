@@ -18,7 +18,7 @@ jobs:
          run: |
             git config --global user.name "Ayush"
             git config --global user.email "ayush@disroot.org"         
-            sudo -E apt-get -qq install python3-pip wget
+            sudo -E apt-get -qq install python3-pip wget cpio
             pip3 install twrpdtgen
         
        - name: Get stock recovery 
