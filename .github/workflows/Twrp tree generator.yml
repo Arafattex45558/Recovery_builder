@@ -30,8 +30,11 @@ jobs:
        - name: Generate Twrp tree
          run: |
               cd work
-              ls
               python3 -m twrpdtgen recovery.img
+              cd xiaomi
+              cd lava
+              rm -rf prebuilt
+              ls
               
              
        - name: Save
