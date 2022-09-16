@@ -31,6 +31,7 @@ jobs:
          run: |
               cd work
               python3 -m twrpdtgen recovery.img
+              cd output
               cd xiaomi
               cd lava
               rm -rf prebuilt
