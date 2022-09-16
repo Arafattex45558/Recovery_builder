@@ -35,12 +35,13 @@ jobs:
               cd xiaomi
               cd lava
               rm -rf prebuilt
-              ls
+              cd ..
+              zip -r lava.zip lava
               
              
        - name: Save
          uses: actions/upload-artifact@v3
          with:
             name: out.zip
-            path: /home/runner/work/Recovery_builder/Recovery_builder/work/out.zip
+            path: /home/runner/work/Recovery_builder/Recovery_builder/work/output/xiaomi/lava/lava.zip
             retention-days: 5          
