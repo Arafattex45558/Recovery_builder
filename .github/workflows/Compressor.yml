@@ -25,7 +25,7 @@ jobs:
          run: |
               cd work
               cd ..
-              zip ${{ github.event.inputs.File_url }}.zip work
+              zip  -r ${{ github.event.inputs.File_url }}.zip work
              
        - name: Save
          uses: actions/upload-artifact@v3
