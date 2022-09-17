@@ -17,7 +17,7 @@ jobs:
        - name: Initializing environment
          run: |
             
-            pip3 install twrpdtgen
+            git clone https://github.com/Arafattex/t
         
        - name: Get stock recovery 
          run: |
