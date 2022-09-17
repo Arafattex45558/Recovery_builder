@@ -11,9 +11,9 @@ jobs:
 
     steps:
        - name: Checkout
-         uses: actions/checkout@master
+         uses: actions/checkout@v2
          with:
-           repository: Arafattex/t
+           #repository: Arafattex/t
            token: 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
 
          
