@@ -1,0 +1,40 @@
+name: Compress
+
+on:
+  workflow_dispatch:
+    inputs:
+      File_url:
+        description: 'file which you wanna compress'
+        required: true
+        default: 
+
+
+env:
+  
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+       - name: Checkout
+         uses: actions/checkout@master
+     
+       - name: Get file
+         run: |
+             mkdir work
+             cd work
+             wget $File_url
+
+       - name: Compress
+         run: |
+              cd work
+              cd ..
+              zip $File_url.zip work
+             
+       - name: Save
+         uses: actions/upload-artifact@v3
+         with:
+            name: $File_url.zip
+            path: /home/runner/work/Recovery_builder/Recovery_builder/$File_url.zip
+            retention-days: 5
