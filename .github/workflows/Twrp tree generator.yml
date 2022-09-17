@@ -10,12 +10,7 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
-       - name: Checkout private repo
-         uses: actions/checkout@v2
-         with:
-          repository: Arafattex/t
-          token: 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
-
+       
        - name: Initializing environment
          run: |
             
@@ -25,7 +20,7 @@ jobs:
          run: |
              mkdir work
              cd work
-             wget https://github.com/6768Team/releases/releases/download/1.0-lava/recovery.img
+             wget https://data.atonline.net/~jwt/eyJhY3QiOiJnZXQiLCJpbiI6eyJkbCI6dHJ1ZX0sInAiOiJibG9ic3JjL2Jsb2JzLWg0ZGJ0My13ZHByLWFtZGUtZHo0eC15cnBueWZmNCJ9/recovery.img?v=1&u=phplatform&e=1663460537&s=Honqp7iVGuDfzwWAXbPBZsbQPDjx07Dj-Qcph8WiKak
              
       
 
