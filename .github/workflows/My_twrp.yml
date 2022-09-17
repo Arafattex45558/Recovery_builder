@@ -15,9 +15,9 @@ on:
 
 env:
   MANIFEST: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp -b twrp-12.1
-  DEVICE: lancelot
-  DT_LINK: https://github.com/Arafattex/twrp_device_xiaomi_merlin.git -b Lancelot
-  DT_PATH: device/xiaomi/lancelot
+  DEVICE: merlin
+  DT_LINK: https://github.com/Arafattex/twrp_device_xiaomi_merlin.git -b Lt
+  DT_PATH: device/xiaomi/merlin
   TYPE: recoveryimage
   OT: twrp_
   TZ: Europe/London
