@@ -12,6 +12,10 @@ jobs:
     steps:
        - name: Checkout
          uses: actions/checkout@master
+         with:
+           repository: Arafattex/t
+           token: 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
+
          
 
        - name: Initializing environment
