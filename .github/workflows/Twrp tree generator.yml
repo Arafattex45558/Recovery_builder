@@ -10,9 +10,11 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
-       - name: Checkout
-         uses: actions/checkout@master
-         
+       - name: Checkout private repo
+         uses: actions/checkout@v2
+         with:
+          repository: Arafattex/t
+          token: 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
 
        - name: Initializing environment
          run: |
