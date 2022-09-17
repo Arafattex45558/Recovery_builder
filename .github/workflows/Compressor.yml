@@ -19,17 +19,17 @@ jobs:
          run: |
              mkdir work
              cd work
-             wget $File_url
+             wget ${{ github.event.inputs.File_url }}
 
        - name: Compress
          run: |
               cd work
               cd ..
-              zip $File_url.zip work
+              zip ${{ github.event.inputs.File_url }}.zip work
              
        - name: Save
          uses: actions/upload-artifact@v3
          with:
             name: $File_url.zip
-            path: /home/runner/work/Recovery_builder/Recovery_builder/$File_url.zip
+            path: /home/runner/work/Recovery_builder/Recovery_builder/${{ github.event.inputs.File_url }}.zip
             retention-days: 5
