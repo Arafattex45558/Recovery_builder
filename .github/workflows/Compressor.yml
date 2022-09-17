@@ -6,12 +6,7 @@ on:
       File_url:
         description: 'file which you wanna compress'
         required: true
-        default: 
-
-
-env:
-  
-
+     
 jobs:
   build:
     runs-on: ubuntu-20.04
