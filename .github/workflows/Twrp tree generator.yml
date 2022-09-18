@@ -23,7 +23,7 @@ jobs:
          run: |
              mkdir work
              cd work
-             wget https://data.atonline.net/~jwt/eyJhY3QiOiJnZXQiLCJpbiI6eyJkbCI6dHJ1ZX0sInAiOiJibG9ic3JjL2Jsb2JzLWg0ZGJ0My13ZHByLWFtZGUtZHo0eC15cnBueWZmNCJ9/recovery.img?v=1&u=phplatform&e=1663462766&s=q4INDDHxDvZRHvZenvarCdq_cS_Sn0uaM0y1Q8cPUTw
+             wget https://github.com/Arafattex/test/releases/download/Ghghj/recovery.img
              
       
 
