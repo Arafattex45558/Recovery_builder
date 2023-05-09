@@ -34,7 +34,7 @@ jobs:
        - name: Kernel
          uses: actions/upload-artifact@v3
          with:
-            name: kernel_mer.zip
+            name: kernel_lanc.zip
             path: /home/runner/kernel/AnyKernel3-master/*.zip
             #path: /home/runner/kernel/outM/arch/arm64/boot/Image.gz
             retention-days: 5
