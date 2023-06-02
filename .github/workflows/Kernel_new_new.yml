@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-16.4
+    runs-on: ubuntu-20.4
 
     steps:
        - name: Checkout
